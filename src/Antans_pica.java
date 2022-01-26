@@ -21,10 +21,73 @@ public class Antans_pica {
 		        + "ĀRPUS PILSĒTAS - 15 EUR\n");
 		
 	}
-
+	
+	public static void pica() {
+		
+		String var, uzv;
+		Object[] d = {30, 60};
+		Object g;
+		Object[] desa = {"SALAMI", "SIERS","ANANĀSI"};
+		Object des;
+		Object[] merce = {"BBQ", "ASĀ","SALDĀ"};
+		Object mer;
+		Object[] piegade = {"UZ VIETAS", "PILSĒTĀ","ĀRPUS PILSĒTAS"};
+		Object pieg;
+		int nauda =0;
+		
+		var = JOptionPane.showInputDialog(null, "Kāds ir tavs vārds?\n","Pizzo");
+		
+		uzv = JOptionPane.showInputDialog(null, "Kāds ir tavs uzvārds?\n","Pizzo"); 
+		
+		g = JOptionPane.showInputDialog(null, "Izvēlies picas diametru\n"
+			   		+ "Pizzo 30 - 5 EUR vai Pizzo 60 - 10 EUR","Pizzo",JOptionPane.QUESTION_MESSAGE,null, d,d[0]);
+		des = JOptionPane.showInputDialog(null, "Izvēlies desu\n"
+		   		+ " Pizzo SALAMI - 3 EUR | Pizzo SIERS - 2 EUR | Pizzo ANANĀSI - 6 EUR","Pizzo",JOptionPane.QUESTION_MESSAGE,null, desa,desa[0]);
+		mer = JOptionPane.showInputDialog(null, "Izvēlies mērci\n"
+		   		+ "Pizzo BBQ - 4 EUR | Pizzo ASĀ - 2 EUR | Pizzo SALDĀ - 2 EUR","Pizzo",JOptionPane.QUESTION_MESSAGE,null, merce,merce[0]);
+		pieg = JOptionPane.showInputDialog(null, "Izvēlies saņemšanas veidu\n"
+		   		+ "UZ VIETAS - BEZMAKSAS | PILSĒTĀ - 5 EUR | ĀRPUS PILSĒTAS - 15 EUR","Pizzo",JOptionPane.QUESTION_MESSAGE,null, piegade,piegade[0]);
+		
+		int x = (Integer)g;
+		if(x==30) {
+			nauda=nauda+5;
+		}else {
+			nauda = nauda+10;
+		}
+		
+		String o = (String)des;
+		if(o.equals("SALAMI")) {
+			nauda=nauda+3;
+		}else if(o.equals("SIERS")) {
+			nauda = nauda+2;
+		}else nauda = nauda+6;
+		
+		String q = (String)mer;
+		if(q.equals("BBQ")) {
+			nauda=nauda+4;
+		}else if(q.equals("ASĀ")) {
+			nauda = nauda+2;
+		}else nauda = nauda+2;
+		
+		String u = (String)pieg;
+		if(u.equals("PILSĒTĀ")) {
+			nauda=nauda+5;
+		}else if(u.equals("ĀRPUS PILSĒTAS")) {
+			nauda = nauda+15;
+		
+		
+		
+		
+		
+		}
+		JOptionPane.showMessageDialog(null, "Kopā sanāk:" +nauda+" EUR");
+	}
+	
 	public static void main(String[] args) {
 		JOptionPane.showMessageDialog(null, "__Pizzo-Picu katalogs__","Pizzo",JOptionPane.PLAIN_MESSAGE);
 		String izvele;
+		
+		
 		do {
 			 izvele = JOptionPane.showInputDialog("Darbības ar Pizzo katalogu\n"
 					+ "1-Pievienot klienta pasūtījumu\n"
@@ -35,11 +98,18 @@ public class Antans_pica {
 			 switch(izvele) {
 			 
 			 case "1":
-				 
+				pica();
+				  
+				   
+				   
 			break;
 			
 			 case "2":
 				 cenas();
+			break;
+			
+			 case"3":
+				 JOptionPane.showMessageDialog(null, null,"Pizzo", JOptionPane.INFORMATION_MESSAGE);
 			break;
 			
 			 case "STOP":
