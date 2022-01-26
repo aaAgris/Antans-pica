@@ -1,6 +1,34 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 import javax.swing.JOptionPane;
 
 public class Antans_pica {
+	
+	public static void nolasit () {
+		try {
+		      File m = new File("ceks.txt");
+		      Scanner las = new Scanner(m);
+		      while (las.hasNextLine()) {
+		        String data = las.nextLine();
+		        System.out.println(data);
+		      }
+		      las.close();
+		    } catch (FileNotFoundException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+	}
+	
+	
+	
+	
+		
 	
 	
 	public static void cenas() {
@@ -14,7 +42,7 @@ public class Antans_pica {
 				+ "   ____EXTRAS MĒRCES____\n"
 				+ "Pizzo BBQ - 4 EUR\n"
 				+ "Pizzo ASĀ - 2 EUR\n"
-		        + "Pizzo SALDĀ - 2 EUR"
+		        + "Pizzo SALDĀ - 2 EUR\n"
 		        + "   ____EXTRAS PIEGĀDE____\n"
 		        + "UZ VIETAS - BEZMAKSAS\n"
 		        + "PILSĒTĀ - 5 EUR\n"
@@ -22,7 +50,7 @@ public class Antans_pica {
 		
 	}
 	
-	public static void pica() {
+	public static List<Object> pica() {
 		
 		String var, uzv;
 		Object[] d = {30, 60};
@@ -35,9 +63,9 @@ public class Antans_pica {
 		Object pieg;
 		int nauda =0;
 		
-		var = JOptionPane.showInputDialog(null, "Kāds ir tavs vārds?\n","Pizzo");
+		var = JOptionPane.showInputDialog(null, "Kāds ir tavs vārds?\n","Pizzo",JOptionPane.PLAIN_MESSAGE);
 		
-		uzv = JOptionPane.showInputDialog(null, "Kāds ir tavs uzvārds?\n","Pizzo"); 
+		uzv = JOptionPane.showInputDialog(null, "Kāds ir tavs uzvārds?\n","Pizzo",JOptionPane.PLAIN_MESSAGE); 
 		
 		g = JOptionPane.showInputDialog(null, "Izvēlies picas diametru\n"
 			   		+ "Pizzo 30 - 5 EUR vai Pizzo 60 - 10 EUR","Pizzo",JOptionPane.QUESTION_MESSAGE,null, d,d[0]);
@@ -81,6 +109,8 @@ public class Antans_pica {
 		
 		}
 		JOptionPane.showMessageDialog(null, "Kopā sanāk:" +nauda+" EUR");
+		List<Object> a;
+		return a = Arrays.asList(var, uzv,x, o, q,u,nauda);
 	}
 	
 	public static void main(String[] args) {
@@ -92,14 +122,16 @@ public class Antans_pica {
 			 izvele = JOptionPane.showInputDialog("Darbības ar Pizzo katalogu\n"
 					+ "1-Pievienot klienta pasūtījumu\n"
 					+ "2-Pizzo cenu apskate\n"
+					+ "3-Pasūtījuma apskate\n"
 					+ "STOP-apturēt darbības ar katalogu");
 			 izvele = izvele.toUpperCase();
 			 
+			
 			 switch(izvele) {
 			 
 			 case "1":
-				pica();
-				  
+				 List<Object> dati = pica();
+				 rakstit(dati);
 				   
 				   
 			break;
@@ -109,7 +141,9 @@ public class Antans_pica {
 			break;
 			
 			 case"3":
-				 JOptionPane.showMessageDialog(null, null,"Pizzo", JOptionPane.INFORMATION_MESSAGE);
+				nolasit();
+				 
+				 
 			break;
 			
 			 case "STOP":
@@ -125,4 +159,22 @@ public class Antans_pica {
 
 	}
 
-}
+
+
+	private static void rakstit(List<Object> dati) {
+		
+		try {
+		    FileOutputStream fos = new FileOutputStream("ceks.txt");
+		    ObjectOutputStream oos = new ObjectOutputStream(fos);   
+		    oos.writeObject(dati); 
+		    oos.close(); 
+		} catch(Exception ex) {
+		   
+		}
+		
+		  }
+	
+		
+	}
+
+
