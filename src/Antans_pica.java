@@ -4,6 +4,21 @@ public class Antans_pica {
 	
 	
 	public static void cenas() {
+		JOptionPane.showMessageDialog
+		(null, "Pizzo Pica 30cm - 5 EUR\n"
+				+ "Pizzo Pica 60cm - 10 EUR\n"
+				+ "   ____EXTRAS PIEDEVAS____\n"
+				+ "Pizzo SALAMI DESA - 3 EUR\n"
+				+ "Pizzo SIERS - 2 EUR\n"
+				+ "Pizzo ANANĀSI - 6 EUR\n"
+				+ "   ____EXTRAS MĒRCES____\n"
+				+ "Pizzo BBQ - 4 EUR\n"
+				+ "Pizzo ASĀ - 2 EUR\n"
+		        + "Pizzo SALDĀ - 2 EUR"
+		        + "   ____EXTRAS PIEGĀDE____\n"
+		        + "UZ VIETAS - BEZMAKSAS\n"
+		        + "PILSĒTĀ - 5 EUR\n"
+		        + "ĀRPUS PILSĒTAS - 15 EUR\n");
 		
 	}
 
