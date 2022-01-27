@@ -16,20 +16,15 @@ public class Antans_pica {
 		      Scanner las = new Scanner(m);
 		      while (las.hasNextLine()) {
 		        String data = las.nextLine();
-		        System.out.println(data);
+		        JOptionPane.showMessageDialog(null, data);
+		        //JOptionPane.showMessageDialog(null, las);
 		      }
 		      las.close();
 		    } catch (FileNotFoundException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
+		      System.out.println("Kļūda");
+		      
 		    }
 	}
-	
-	
-	
-	
-		
-	
 	
 	public static void cenas() {
 		JOptionPane.showMessageDialog
